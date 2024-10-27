@@ -1,17 +1,17 @@
-import React from "react";
-import { StoryFn, Meta } from "@storybook/react";
-import Img from "./Img";
-import { ImgProps } from "./Img.types";
+import React from 'react';
+import { StoryFn, Meta } from '@storybook/react';
+import Img from './Img';
+import { ImgProps } from './Img.types';
 
 const meta: Meta<ImgProps> = {
-  title: "Components Assignment/Img",
+  title: 'Components Assignment/Img',
   component: Img,
   argTypes: {
     disabled: {
       control: 'boolean',
-      description: 'Toggle whether the image is disabled'
-    }
-  }
+      description: 'Toggle whether the image is disabled',
+    },
+  },
 };
 
 export default meta;
@@ -20,8 +20,8 @@ const ImageTemplate: StoryFn<ImgProps> = (args) => <Img {...args} />;
 
 export const DefaultImage = ImageTemplate.bind({});
 DefaultImage.args = {
-  src: "https://via.placeholder.com/150",
-  alt: "Placeholder Image",
+  src: 'https://via.placeholder.com/150',
+  alt: 'Placeholder Image',
 };
 
 export const DisabledImage = ImageTemplate.bind({});

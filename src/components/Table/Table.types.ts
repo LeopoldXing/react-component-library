@@ -1,4 +1,4 @@
-import type React from "react";
+import type React from 'react';
 
 export interface ITable {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ export interface ITableRow {
 
 export interface ITableCell {
   children: React.ReactNode;
-  align?: "left" | "right" | "center";
+  align?: 'left' | 'right' | 'center';
 }
 
 export interface ITableFooter {

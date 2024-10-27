@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { type Meta, StoryFn } from "@storybook/react";
-import Dropdown from "./Dropdown";
-import { type IDropdown } from "./Dropdown.types";
+import React, { useState } from 'react';
+import { type Meta, StoryFn } from '@storybook/react';
+import Dropdown from './Dropdown';
+import { type IDropdown } from './Dropdown.types';
 
 const meta: Meta = {
-  title: "Components Assignment/Dropdown",
+  title: 'Components Assignment/Dropdown',
   component: Dropdown,
   argTypes: {},
 };
@@ -27,20 +27,20 @@ const DropdownTemplate: StoryFn<IDropdown> = (args) => {
 export const Primary = DropdownTemplate.bind({});
 Primary.args = {
   options: [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" }
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
   ],
-  value: "option1",
+  value: 'option1',
 };
 
 export const Disabled = DropdownTemplate.bind({});
 Disabled.args = {
   options: [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
   ],
-  value: "option1",
+  value: 'option1',
   disabled: true,
 };

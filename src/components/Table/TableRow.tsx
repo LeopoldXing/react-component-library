@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { ITableRow } from "./Table.types";
+import React from 'react';
+import styled from 'styled-components';
+import { ITableRow } from './Table.types';
 
 const CustomTableRow = styled.tr<ITableRow>`
-    &:nth-child(odd) {
-        background-color: #f4f4f4;
-    }
+  &:nth-child(odd) {
+    background-color: #f4f4f4;
+  }
 `;
 
 const TableRow: React.FC<ITableRow> = ({ children }) => {
