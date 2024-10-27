@@ -15,8 +15,8 @@ This document provides instructions to set up and run the React Component Librar
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/LeopoldXing/assignment13-react-component-library
-cd assignment13-web-component-library
+git clone https://github.com/LeopoldXing/react-component-library
+cd react-component-library
 ```
 
 ### Building the Docker Image
