@@ -1,12 +1,12 @@
-import React from 'react';
+import { type MouseEventHandler } from "react";
 
-export interface IButton {
+export interface ButtonProps {
   text?: string;
   primary?: boolean;
   disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
-  success?: boolean;
-  error?: boolean;
-  warning?: boolean;
+  size?: "small" | "medium" | "large";
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  isSuccess?: boolean;
+  isError?: boolean;
+  isWarning?: boolean;
 }

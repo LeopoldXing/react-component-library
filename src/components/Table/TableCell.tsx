@@ -1,21 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ITableCell } from './Table.types';
+import React from "react";
+import styled from "styled-components";
+import { type TableCellProps } from "./Table.types";
 
-const CustomTableCell = styled.td<ITableCell>`
-  padding: 10px;
-  text-align: ${({ align }) => align};
-  border-bottom: 1px solid #eee;
-  color: #666;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #f9f9f9;
-  }
+const StyledTableCell = styled.td<TableCellProps>`
+  padding: 8px;
+  text-align: ${(props) => props.align ?? "center"};
 `;
 
-const TableCell: React.FC<ITableCell> = ({ children, align = 'center' }) => {
-  return <CustomTableCell align={align}>{children}</CustomTableCell>;
+const TableCell: React.FC<TableCellProps> = ({
+  children,
+  align = "center",
+}) => {
+  return <StyledTableCell align={align}>{children}</StyledTableCell>;
 };
 
 export default TableCell;

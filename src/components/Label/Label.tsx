@@ -1,38 +1,37 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ILabel } from './Label.types';
+import React from "react";
+import styled from "styled-components";
+import { type LabelProps } from "./Label.types";
 
-const CustomLabel = styled.label<ILabel>`
+const StyledLabel = styled.label<LabelProps>`
   font-size: ${(props) =>
-    props.size === 'small'
-      ? '0.75rem'
-      : props.size === 'medium'
-        ? '1rem'
-        : '1.2rem'};
-  font-family: 'Helvetica Neue', sans-serif;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  color: ${(props) => (props.disabled ? '#b2b2b2' : '#333')};
-  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
-  transition:
-    color 0.3s ease-in-out,
-    opacity 0.3s ease-in-out;
-
-  &:hover {
-    color: ${(props) => (props.disabled ? '#b2b2b2' : '#555')};
-  }
+    props.size === "small"
+      ? "0.8rem"
+      : props.size === "medium"
+        ? "1rem"
+        : "1.1rem"};
+  font-family: "Playfair Display", serif;
+  cursor: pointer;
+  color: "#2F2F2F";
+  ${(props) =>
+    props.disabled &&
+    `
+    background-color: grey;
+    cursor: not-allowed;
+    color: #ccc;
+  `}
 `;
 
-const Label: React.FC<ILabel> = ({
-  size = 'medium',
+const Label: React.FC<LabelProps> = ({
+  size = "medium",
   htmlFor,
   text,
   disabled = false,
   ...props
 }) => {
   return (
-    <CustomLabel size={size} htmlFor={htmlFor} disabled={disabled} {...props}>
+    <StyledLabel size={size} htmlFor={htmlFor} disabled={disabled} {...props}>
       {text}
-    </CustomLabel>
+    </StyledLabel>
   );
 };
 

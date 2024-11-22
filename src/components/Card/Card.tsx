@@ -1,70 +1,64 @@
-import React from 'react';
-import styled from 'styled-components';
-import { type ICard } from './Card.types';
+import React from "react";
+import styled from "styled-components";
+import { type CardProps } from "./Card.types";
 
-const CustomCard = styled.div<ICard>`
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-  max-width: ${(props) => props.width || '280px'};
-  opacity: ${(props) => (props.disabled ? 0.4 : 1)};
-  pointer-events: ${(props) => (props.disabled ? 'none' : 'auto')};
-  transition: opacity 0.2s ease-in-out;
+const CardContainer = styled.div<{ disabled?: boolean }>`
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  max-width: ${(props) => props.width || "300px"};
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+  ${(props) =>
+    props.disabled &&
+    `
+  cursor: not-allowed;
+`}
 `;
 
 const Image = styled.img`
   width: 100%;
-  border-radius: 5px;
+  border-radius: 4px;
 `;
 
 const Title = styled.h2`
-  font-size: 1.1em;
-  margin-top: 8px;
+  font-size: 1.2em;
+  margin-top: 10px;
 `;
 
 const Content = styled.p`
-  margin-top: 8px;
+  margin-top: 10px;
 `;
 
-const ActionButton = styled.button`
-  margin-top: 18px;
-  padding: 8px 18px;
+const Button = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  background-color: navy;
-  color: #fff;
-  font-weight: bold;
+  border-radius: 4px;
+  background-color: blue;
+  color: white;
   cursor: pointer;
-
-  &:hover {
-    background-color: darkblue;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-  }
 `;
 
-const Card: React.FC<ICard> = ({
-  imageUrl,
-  title = 'Example Card',
-  content = 'Example Card Content',
+const Card: React.FC<CardProps> = ({
+  imageurl,
+  title,
+  content,
   buttonText,
   onButtonClick,
-  disabled = false,
+  disabled,
   ...props
 }) => {
   return (
-    <CustomCard disabled={disabled} {...props}>
-      {imageUrl && <Image src={imageUrl} alt={title} />}
-      {title && <Title>{title}</Title>}
-      {content && <Content>{content}</Content>}
+    <CardContainer disabled={disabled} {...props}>
+      {imageurl && <Image src={imageurl} alt={title} />}
+      <Title>{title}</Title>
+      <Content>{content}</Content>
       {buttonText && (
-        <ActionButton onClick={onButtonClick} disabled={disabled}>
+        <Button onClick={onButtonClick} disabled={disabled}>
           {buttonText}
-        </ActionButton>
+        </Button>
       )}
-    </CustomCard>
+    </CardContainer>
   );
 };
 

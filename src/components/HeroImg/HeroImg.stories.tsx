@@ -1,22 +1,22 @@
-import React from 'react';
-import { StoryFn, type Meta } from '@storybook/react';
-import HeroImage from './HeroImg';
-import { type IHeroImage } from './HeroImg.types';
-import { HeroImg } from '.';
+import React from "react";
+import { type Story, type Meta } from "@storybook/react";
+import HeroImage from "./HeroImg";
+import { type HeroImageProps } from "./HeroImg.types";
+import { HeroImg } from ".";
 
 export default {
-  title: 'Components Assignment/HeroImage',
+  title: "Components/HeroImage",
   component: HeroImg,
 } as Meta;
 
-const Template: StoryFn<IHeroImage> = (args) => <HeroImage {...args} />;
+const Template: Story<HeroImageProps> = (args) => <HeroImage {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  imageUrl: 'https://via.placeholder.com/1200x400',
-  title: 'Welcome to Our Website',
-  subtitle: 'Discover our amazing services',
-  text: 'Learn More',
+  imageUrl: "https://via.placeholder.com/1200x400",
+  title: "Welcome to Our Website",
+  subtitle: "Discover our amazing services",
+  Text: "Learn More",
 };
 
 export const Disabled = Template.bind({});

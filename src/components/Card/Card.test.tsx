@@ -1,22 +1,23 @@
-import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
-import Card from './Card';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
+import Card from "./Card";
 
-describe('Testing Card Component', () => {
-  it('should display the provided title and content', () => {
-    render(
-      <Card title="Example Title" content="Example Content" disabled={false} />,
+describe("Card", () => {
+  it("renders the card with title and content", () => {
+    const { getByText } = render(
+      <Card title="Test Title" content="Test Content" disabled={false} />,
     );
-    expect(screen.getByText('Example Title')).toBeInTheDocument();
-    expect(screen.getByText('Example Content')).toBeInTheDocument();
+    expect(getByText("Test Title")).toBeVisible();
+    expect(getByText("Test Content")).toBeVisible();
   });
 
-  it('should correctly handle the disabled state of the card', () => {
-    expect(screen.getByText('Disabled Card')).toBeVisible();
-    expect(screen.getByText('Content not available')).toBeVisible();
-    // Checking for reduced opacity to indicate disabled state
-    expect(screen.getByRole('button')).toHaveAttribute('disabled');
-    expect(screen.getByRole('button')).toHaveStyle('opacity: 0.5');
+  it("displays the card as disabled", () => {
+    const { getByText, container } = render(
+      <Card title="Test Title" content="Test Content" disabled={true} />,
+    );
+    expect(getByText("Test Title")).toBeVisible();
+    expect(container.firstChild).toHaveStyle("opacity: 0.5");
+    expect(container.firstChild).toHaveStyle("cursor: not-allowed");
   });
 });

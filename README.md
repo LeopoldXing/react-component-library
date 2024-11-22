@@ -32,12 +32,12 @@ docker build -t luping_xing_coding_assignment13 .
 Once the image is built, you can run the container using:
 
 ```bash
-docker run -dp 8081:8081 --name luping_xing_coding_assignment13 luping_xing_coding_assignment13
+docker run -dp 8018:8018 --name luping_xing_coding_assignment13 luping_xing_coding_assignment13
 ```
 
 ### Accessing the Component Library
 
-After the container starts, you can access the component library by navigating to [http://localhost:8081](http://localhost:8081)
+After the container starts, you can access the component library by navigating to [http://localhost:8018](http://localhost:8018)
 in your web browser.
 
 ## Components

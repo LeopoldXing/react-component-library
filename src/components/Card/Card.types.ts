@@ -1,8 +1,8 @@
-export interface ICard {
-  imageUrl?: string;
+export interface CardProps {
+  imageurl?: string;
   width?: string;
-  title?: string;
-  content?: string;
+  title: string;
+  content: string;
   buttonText?: string;
   onButtonClick?: () => void;
   disabled?: boolean;

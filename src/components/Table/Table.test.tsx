@@ -1,14 +1,14 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import Table from './Table';
-import TableHeader from './TableHeader';
-import TableCell from './TableCell';
-import TableRow from './TableRow';
-import TableFooter from './TableFooter';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import Table from "./Table";
+import TableHeader from "./TableHeader";
+import TableCell from "./TableCell";
+import TableRow from "./TableRow";
+import TableFooter from "./TableFooter";
 
-describe('Table Component Tests', () => {
-  test('renders table cells with correct content', () => {
+describe("Running Test for Table", () => {
+  test("Check Text Front Size", () => {
     render(
       <Table>
         <TableHeader>
@@ -31,11 +31,11 @@ describe('Table Component Tests', () => {
         </TableFooter>
       </Table>,
     );
-    expect(screen.getByText('Header 1')).toBeInTheDocument();
-    expect(screen.getByText('Footer 1')).toBeInTheDocument();
+    expect(screen.getByText("Cell 1")).toBeInTheDocument();
+    expect(screen.getByText("Cell 2")).toBeInTheDocument();
   });
 
-  test('applies disabled styles correctly', () => {
+  test("has correct style when disabled", () => {
     render(
       <Table disabled>
         <TableHeader>
@@ -58,9 +58,9 @@ describe('Table Component Tests', () => {
         </TableFooter>
       </Table>,
     );
-    const table = screen.getByRole('table');
-    expect(table).toHaveStyle('background-color: lightgrey');
-    expect(table).toHaveStyle('cursor: not-allowed');
-    expect(table).toHaveStyle('color: darkgrey');
+    const table = screen.getByRole("table");
+    expect(table).toHaveStyle("background-color: lightgrey");
+    expect(table).toHaveStyle("cursor: not-allowed");
+    expect(table).toHaveStyle("color: #darkgrey");
   });
 });

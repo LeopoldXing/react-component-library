@@ -1,26 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { IDropdown } from './Dropdown.types';
+import React from "react";
+import { styled } from "styled-components";
+import { type DropdownProps } from "./Dropdown.types";
 
-const CustomSelect = styled.select`
-  padding: 12px;
-  border-radius: 5px;
-  border: solid 1px #b0b0b0;
-  background-color: white;
-  color: #444;
-
-  &:hover {
-    border-color: #a0a0a0;
-  }
-
+const Select = styled.select`
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
   &:disabled {
-    background-color: #f0f0f0;
-    color: #b0b0b0;
+    background-color: #f3f3f3;
+    color: #ccc;
     cursor: not-allowed;
   }
 `;
 
-const Dropdown: React.FC<IDropdown> = ({
+const Dropdown: React.FC<DropdownProps> = ({
   id,
   name,
   value,
@@ -29,7 +22,7 @@ const Dropdown: React.FC<IDropdown> = ({
   disabled = false,
 }) => {
   return (
-    <CustomSelect
+    <Select
       id={id}
       name={name}
       value={value}
@@ -41,7 +34,7 @@ const Dropdown: React.FC<IDropdown> = ({
           {option.label}
         </option>
       ))}
-    </CustomSelect>
+    </Select>
   );
 };
 

@@ -1,6 +1,4 @@
-import React from 'react';
-
-export interface IDropdown {
+export interface DropdownProps {
   id?: string;
   name?: string;
   value: string;

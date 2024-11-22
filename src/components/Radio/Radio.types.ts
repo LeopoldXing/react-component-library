@@ -1,6 +1,4 @@
-import React from 'react';
-
-export interface IRadio {
+export interface RadioProps {
   id: string;
   name: string;
   value: string;

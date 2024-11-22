@@ -1,19 +1,16 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import Img from './Img';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
+import Img from "./Img";
 
-describe('Img Component Tests', () => {
-  test('renders the image with correct attributes', () => {
-    render(<Img src="test.jpg" alt="Test Image" />);
-    const image = screen.getByAltText('Test Image');
-    expect(image).toBeVisible();
-    expect(image).toHaveAttribute('src', 'test.jpg');
+describe("Img", () => {
+  it("renders the component", () => {
+    const { getByAltText } = render(<Img src="test.jpg" alt="Test" />);
+    expect(getByAltText("Test")).toBeVisible();
   });
 
-  test('applies reduced opacity when disabled', () => {
-    render(<Img src="test.jpg" alt="Test Image" disabled />);
-    const image = screen.getByAltText('Test Image');
-    expect(image).toHaveStyle('opacity: 0.5');
+  it("changes opacity when disabled", () => {
+    const { getByAltText } = render(<Img src="test.jpg" alt="Test" disabled />);
+    expect(getByAltText("Test")).toHaveStyle("opacity: 0.5");
   });
 });

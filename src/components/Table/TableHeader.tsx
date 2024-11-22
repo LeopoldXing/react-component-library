@@ -1,15 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ITableHeader } from './Table.types';
+import React from "react";
+import styled from "styled-components";
+import { type TableHeaderProps } from "./Table.types";
 
-const CustomTableHeader = styled.thead<ITableHeader>`
+const StyledTableHeader = styled.thead<TableHeaderProps>`
   font-weight: bold;
-  color: ${(props) => props.theme.primaryColor};
-  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
-const TableHeader: React.FC<ITableHeader> = ({ children }) => {
-  return <CustomTableHeader>{children}</CustomTableHeader>;
+const TableHeader: React.FC<TableHeaderProps> = ({ children }) => {
+  return <StyledTableHeader>{children}</StyledTableHeader>;
 };
 
 export default TableHeader;

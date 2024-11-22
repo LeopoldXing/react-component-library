@@ -1,114 +1,117 @@
-import React from 'react';
-import styled from 'styled-components';
-import { IButton } from './Button.types';
+import React from "react";
+import styled from "styled-components";
+import { type ButtonProps } from "./Button.types";
 
-const CustomButton = styled.button<IButton>`
-  border-radius: 5px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+const StyledButton = styled.button<ButtonProps>`
+  border-radius: 3px;
+  display: inline-block;
   padding: ${(props) =>
-    props.size === 'small'
-      ? '6px 12px'
-      : props.size === 'medium'
-        ? '10px 24px'
-        : '16px 30px'};
+    props.size === "small"
+      ? "8px"
+      : props.size === "medium"
+        ? "12px 25px"
+        : "18px 32px"};
   border: none;
   font-size: 1rem;
-  min-width: 90px;
+  border-radius: 1rem;
+  min-width: 80px;
   cursor: pointer;
-  font-family: 'Arial', sans-serif;
-  transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
+  transition:
+    background-color 0.3s linear,
+    color 0.3s linear;
 
-  background-color: ${(props) => (props.primary ? '#E4572E' : '#343434')};
-  color: #fff;
+  background-color: ${(props) =>
+    props.primary === true ? "#EB5552" : "#2F2F2F"};
+
+  color: #ffffff;
 
   &:hover {
-    background-color: ${(props) => (props.primary ? '#FFA07A' : '#696969')};
+    background-color: ${(props) => (props.primary ? "#F5B74C" : "#878484")};
   }
 
   &:focus {
-    outline: 3px solid #e4572e;
+    outline: 2px solid #eb5552;
     outline-offset: 2px;
   }
 
   &:active {
-    background-color: ${(props) => (props.primary ? '#AA381E' : '#1C1C1C')};
+    background-color: ${(props) => (props.primary ? "#C73438" : "#000000")};
   }
 
   &:disabled {
-    background-color: #b0b0b0;
-    color: #fff;
+    background-color: #c8c8c8;
+    color: #ffffff;
     cursor: not-allowed;
   }
 
   ${(props) =>
-    props.success &&
+    props.isSuccess &&
     `
-        background-color: #4CAF50;
-        &:hover {
-            background-color: #45A049;
-        }
-        &:focus {
-            outline: 3px solid #4CAF50;
-            outline-offset: 2px;
-        }
-        &:active {
-            background-color: #388E3C;
-        }
-    `}
+    background-color: #68E365;
+    &:hover {
+      background-color: #32B53A;
+    }
+    &:focus {
+      outline: 2px solid #68E365;
+      outline-offset: 2px;
+    }
+    &:active {
+      background-color: #008906;
+    }
+  `}
 
   ${(props) =>
-    props.error &&
+    props.isError &&
     `
-        background-color: #F44336;
-        &:hover {
-            background-color: #D32F2F;
-        }
-        &:focus {
-            outline: 3px solid #F44336;
-            outline-offset: 2px;
-        }
-        &:active {
-            background-color: #C62828;
-        }
-    `}
+    background-color: #FF677B;
+    &:hover {
+      background-color: F84B6A;
+    }
+    &:focus {
+      outline: 2px solid #FF677B;
+      outline-offset: 2px;
+    }
+    &:active {
+      background-color: #F72B50;
+    }
+  `}
 
-    ${(props) =>
-    props.warning &&
+  ${(props) =>
+    props.isWarning &&
     `
-        background-color: #FFEB3B;
-        &:hover {
-            background-color: #FDD835;
-        }
-        &:focus {
-            outline: 3px solid #FFEB3B;
-            outline-offset: 2px;
-        }
-        &:active {
-            background-color: #FBC02D;
-        }
-    `}
+    background-color: #FFC021;
+    &:hover {
+      background-color: #FFAC00;
+    }
+    &:focus {
+      outline: 2px solid #FFC021;
+      outline-offset: 2px;
+    }
+    &:active {
+      background-color: #FFA200;
+    }
+  `}
 `;
 
-const Button: React.FC<IButton> = ({
-  size = 'medium',
+const Button: React.FC<ButtonProps> = ({
+  size = "medium",
   disabled = false,
   text,
-  handleClick,
+  onClick,
   ...props
 }) => {
   return (
-    <CustomButton
+    <StyledButton
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
       disabled={disabled}
       size={size}
       {...props}
       aria-disabled={disabled ? true : undefined}
     >
       {text}
-    </CustomButton>
+    </StyledButton>
   );
 };
 

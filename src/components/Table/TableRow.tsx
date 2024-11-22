@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ITableRow } from './Table.types';
+import React from "react";
+import styled from "styled-components";
+import { type TableRowProps } from "./Table.types";
 
-const CustomTableRow = styled.tr<ITableRow>`
-  &:nth-child(odd) {
-    background-color: #f4f4f4;
+const StyledTableRow = styled.tr<TableRowProps>`
+  &:nth-child(even) {
+    background-color: #f9f9f9;
   }
 `;
 
-const TableRow: React.FC<ITableRow> = ({ children }) => {
-  return <CustomTableRow>{children}</CustomTableRow>;
+const TableRow: React.FC<TableRowProps> = ({ children }) => {
+  return <StyledTableRow>{children}</StyledTableRow>;
 };
 
 export default TableRow;

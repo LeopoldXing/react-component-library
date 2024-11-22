@@ -1,16 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ITableFooter } from './Table.types';
+import React from "react";
+import styled from "styled-components";
+import { type TableFooterProps } from "./Table.types";
 
-const CustomTableFooter = styled.tfoot<ITableFooter>`
+const StyledTableFooter = styled.tfoot<TableFooterProps>`
   width: 100%;
-  background-color: #f8f8f8;
-  padding: 10px 0;
-  border-top: 2px solid #ccc;
 `;
 
-const TableFooter: React.FC<ITableFooter> = ({ children }) => {
-  return <CustomTableFooter>{children}</CustomTableFooter>;
+const TableFooter: React.FC<TableFooterProps> = ({ children }) => {
+  return <StyledTableFooter>{children}</StyledTableFooter>;
 };
 
 export default TableFooter;

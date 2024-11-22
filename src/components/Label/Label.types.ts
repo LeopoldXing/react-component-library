@@ -1,6 +1,6 @@
-export interface ILabel {
+export interface LabelProps {
   text?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   htmlFor: string;
   color?: string;
   disabled?: boolean;

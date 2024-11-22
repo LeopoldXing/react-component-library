@@ -1,65 +1,66 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import Button from './Button';
-import { IButton } from './Button.types';
+import React from "react";
+import { type Meta, type Story } from "@storybook/react";
+import Button from "./Button";
+import { type ButtonProps } from "./Button.types";
 
-export default {
-  title: 'Components Assignment/Button',
+const meta: Meta = {
+  title: "Components/Button",
   component: Button,
-  parameters: {},
-} as Meta<IButton>;
+  argTypes: {},
+};
+export default meta;
 
-const ButtonTemplate: StoryFn<IButton> = (props) => <Button {...props} />;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const PrimaryButton = ButtonTemplate.bind({});
-PrimaryButton.args = {
+export const PrimaryMedium = Template.bind({});
+PrimaryMedium.args = {
   primary: true,
-  size: 'medium',
-  text: 'Primary Button',
+  size: "medium",
+  text: "Primary Medium",
 };
 
-export const SmallButton = ButtonTemplate.bind({});
-SmallButton.args = {
+export const Small = Template.bind({});
+Small.args = {
   primary: true,
-  size: 'small',
-  text: 'Click Small',
+  size: "small",
+  text: "Small Button",
 };
 
-export const LargeButton = ButtonTemplate.bind({});
-LargeButton.args = {
+export const Large = Template.bind({});
+Large.args = {
   primary: true,
-  size: 'large',
-  text: 'Click Large',
+  size: "large",
+  text: "Large Button",
 };
 
-export const ButtonDisabled = ButtonTemplate.bind({});
-ButtonDisabled.args = {
+export const Disabled = Template.bind({});
+Disabled.args = {
   primary: true,
-  size: 'medium',
-  text: 'Disabled Button',
+  size: "medium",
+  text: "Disabled",
   disabled: true,
 };
 
-export const ButtonSuccess = ButtonTemplate.bind({});
-ButtonSuccess.args = {
+export const Success = Template.bind({});
+Success.args = {
   primary: true,
-  size: 'medium',
-  text: 'Success State',
-  success: true,
+  size: "medium",
+  text: "Success",
+  isSuccess: true,
 };
 
-export const ButtonError = ButtonTemplate.bind({});
-ButtonError.args = {
+export const Error = Template.bind({});
+Error.args = {
   primary: true,
-  size: 'medium',
-  text: 'Error State',
-  error: true,
+  size: "medium",
+  text: "Error",
+  isError: true,
 };
 
-export const ButtonWarning = ButtonTemplate.bind({});
-ButtonWarning.args = {
+export const Warning = Template.bind({});
+Warning.args = {
   primary: true,
-  size: 'medium',
-  text: 'Warning State',
-  warning: true,
+  size: "medium",
+  text: "Warning",
+  isWarning: true,
 };

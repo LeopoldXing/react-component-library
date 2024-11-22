@@ -1,26 +1,22 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import Table from './Table';
-import TableHeader from './TableHeader';
-import TableCell from './TableCell';
-import TableRow from './TableRow';
-import TableFooter from './TableFooter';
-import { ITable } from './Table.types';
+// Table.stories.tsx
 
-const meta: Meta<ITable> = {
-  title: 'Components Assignment/Table',
+import React from "react";
+import { type Meta, type Story } from "@storybook/react";
+import Table from "./Table";
+import TableHeader from "./TableHeader";
+import TableCell from "./TableCell";
+import TableRow from "./TableRow";
+import TableFooter from "./TableFooter";
+import { type TableProps } from "./Table.types";
+
+const meta: Meta<TableProps> = {
+  title: "Components/Table",
   component: Table,
-  argTypes: {
-    disabled: {
-      control: 'boolean',
-      description: 'Disables interaction with the table',
-    },
-  },
 };
 
 export default meta;
 
-const TableTemplate: StoryFn<ITable> = (args) => (
+const Template: Story<TableProps> = (args) => (
   <Table {...args}>
     <TableHeader>
       <TableRow>
@@ -55,12 +51,11 @@ const TableTemplate: StoryFn<ITable> = (args) => (
   </Table>
 );
 
-// Story for Default Table
-export const DefaultTable = TableTemplate.bind({});
-DefaultTable.args = {};
+// Default Table
+export const Default = Template.bind({});
+Default.args = {};
 
-// Story for Disabled Table
-export const DisabledTable = TableTemplate.bind({});
+export const DisabledTable = Template.bind({});
 DisabledTable.args = {
   disabled: true,
 };

@@ -1,22 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { IRadio } from './Radio.types';
+import React from "react";
+import styled from "styled-components";
+import { type RadioProps } from "./Radio.types";
 
-const CustomRadio = styled.input.attrs({ type: 'radio' })`
-  margin: 8px;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  transition: transform 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:disabled {
-    opacity: 0.6;
-  }
+const StyledRadio = styled.input`
+  margin: 0.5rem;
+  cursor: pointer;
+  ${(props) =>
+    props.disabled &&
+    `
+    cursor: not-allowed;
+  `}
 `;
 
-const Radio: React.FC<IRadio> = ({
+export const Radio: React.FC<RadioProps> = ({
   id,
   name,
   value,
@@ -25,7 +21,8 @@ const Radio: React.FC<IRadio> = ({
   onChange,
 }) => {
   return (
-    <CustomRadio
+    <StyledRadio
+      type="radio"
       id={id}
       name={name}
       value={value}

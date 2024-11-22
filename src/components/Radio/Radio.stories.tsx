@@ -1,8 +1,8 @@
-import React from 'react';
-import Radio from './Radio';
+import React from "react";
+import { Radio } from "./Radio";
 
 export default {
-  title: 'Components Assignment/Radio',
+  title: "Components/Radio",
   component: Radio,
 };
 

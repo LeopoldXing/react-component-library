@@ -1,8 +1,8 @@
-export interface IHeroImage {
+export interface HeroImageProps {
   imageUrl: string;
   title?: string;
   subtitle?: string;
-  text?: string;
-  onClick?: () => void;
+  Text?: string;
+  OnClick?: () => void;
   disabled?: boolean;
 }
