@@ -6,3 +6,7 @@
 .idea
 
 *storybook.log
+
+.npmrc
+
+dist
